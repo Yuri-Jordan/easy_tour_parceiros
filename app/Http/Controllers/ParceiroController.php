@@ -13,9 +13,9 @@ class ParceiroController extends Controller
      */
     public function index()
     {
-        
 
-        return view('testeParceiro', compact('parceiros'));
+
+        return view('testeParceiro');
     }
 
     /**
