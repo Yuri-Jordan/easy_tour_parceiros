@@ -18,8 +18,8 @@ Route::get('/', function () {
 Route::group( ['prefix' => 'admin'], function(){
 
     Route::get('/{acao}',  [
-      'uses' => 'AdminGetPageController@getPages',
-      'as' => 'action'
+      'uses' => 'NavegacaoController@getPaginas',
+      'as' => 'getPagina'
     ]);
 
 });
