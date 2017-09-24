@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('index');
 });
 
 Route::group( ['prefix' => 'admin'], function(){
