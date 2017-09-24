@@ -11,11 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
-
+/*
+|--------------------------------------------------------------------------
+| Rotas de navegação
+|--------------------------------------------------------------------------
+*/
 Route::group( ['prefix' => 'admin'], function(){
+
+    Route::get('/', function () {
+        return view('login');
+    })->name('login');
+
+    Route::get('/home', function () {
+        return view('index');
+    })->name('home');
 
     Route::group(['prefix' => 'cadastrar'], function(){
 
@@ -31,5 +40,11 @@ Route::group( ['prefix' => 'admin'], function(){
     ]);
 
 });
+
+/*
+|--------------------------------------------------------------------------
+| Rotas de CRUD
+|--------------------------------------------------------------------------
+*/
 
 Route::resource('parceiros', 'ParceiroController');
