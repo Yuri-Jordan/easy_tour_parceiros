@@ -34,10 +34,15 @@ Route::group( ['prefix' => 'admin'], function(){
       ]);
     });
 
-    Route::get('/{acao}',  [
-      'uses' => 'NavegacaoController@getPaginasListar',
-      'as' => 'getPaginaListar'
-    ]);
+    Route::group(['prefix' => 'listar'], function(){
+
+      Route::get('/{acao}',  [
+        'uses' => 'NavegacaoController@getPaginasListar',
+        'as' => 'getPaginaListar'
+      ]);
+    });
+
+
 
 });
 
