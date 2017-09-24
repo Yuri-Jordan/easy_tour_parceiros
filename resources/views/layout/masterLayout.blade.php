@@ -35,7 +35,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-map-marker"></i> <span>Easy Tour Brasil</span></a>
+              <a href="{{route('home')}}" class="site_title"><i class="fa fa-map-marker"></i> <span>Easy Tour Brasil</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -61,32 +61,32 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-map-marker"></i> Pontos Turísticos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="cadastrar-ponto.html">Novo Ponto</a></li>
-                      <li><a href="listar-ponto.html">Listar Pontos</a></li>
-                      <li><a href="cadastrar-categoria-ponto.html">Nova Categoria de Pontos</a></li>
-                      <li><a href="listar-categoria-ponto.html">Listar Categoria de Pontos</a></li>
+                      <li><a href="{{route('getPaginaCadastrar', ['pagina' => 'cadastrar-ponto'])}}">Novo Ponto</a></li>
+                      <li><a href="{{route('getPaginaListar', ['pagina' => 'listar-ponto'])}}">Listar Pontos</a></li>
+                      <li><a href="{{route('getPaginaCadastrar', ['pagina' => 'cadastrar-categoria-ponto'])}}">Nova Categoria de Pontos</a></li>
+                      <li><a href="{{route('getPaginaListar', ['pagina' => 'listar-categoria-ponto'])}}">Listar Categoria de Pontos</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-road"></i> Roteiros Turísticos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="cadastrar-roteiro.html">Novo Roteiro</a></li>
-                      <li><a href="listar-roteiro.html">Listar Roteiros</a></li>
-                      <li><a href="cadastrar-categoria-roteiro.html">Nova Categoria Roteiros</a></li>
-                      <li><a href="listar-categoria-roteiro.html">Listar Categoria Roteiros</a></li>
+                      <li><a href="{{route('getPaginaCadastrar', ['pagina' => 'cadastrar-roteiro'])}}">Novo Roteiro</a></li>
+                      <li><a href="{{route('getPaginaListar', ['pagina' => 'listar-roteiro'])}}">Listar Roteiros</a></li>
+                      <li><a href="{{route('getPaginaCadastrar', ['pagina' => 'cadastrar-categoria-roteiro'])}}">Nova Categoria Roteiros</a></li>
+                      <li><a href="{{route('getPaginaListar', ['pagina' => 'listar-categoria-roteiro'])}}">Listar Categoria Roteiros</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-briefcase"></i> Parceiros <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="cadastrar-parceiro.html">Novo Parceiro</a></li>
-                      <li><a href="listar-parceiro.html">Listar Parceiros</a></li>
-                      <li><a href="cadastrar-categoria-parceiro.html">Nova Categoria Parceiros</a></li>
-                      <li><a href="listar-categoria-parceiro.html">Listar Categoria Parceiros</a></li>
+                      <li><a href="{{route('getPaginaCadastrar', ['pagina' => 'cadastrar-parceiro'])}}">Novo Parceiro</a></li>
+                      <li><a href="{{route('getPaginaListar', ['pagina' => 'listar-parceiro'])}}">Listar Parceiros</a></li>
+                      <li><a href="{{route('getPaginaCadastrar', ['pagina' => 'cadastrar-categoria-parceiro'])}}">Nova Categoria Parceiros</a></li>
+                      <li><a href="{{route('getPaginaListar', ['pagina' => 'listar-categoria-parceiro'])}}">Listar Categoria Parceiros</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-users"></i> Usuários <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="cadastrar-usuario.html">Novo Usuário</a></li>
-                      <li><a href="listar-usuario.html">Listar Usuários</a></li>
+                      <li><a href="{{route('getPaginaCadastrar', ['pagina' => 'cadastrar-usuario'])}}">Novo Usuário</a></li>
+                      <li><a href="{{route('getPaginaListar', ['pagina' => 'listar-usuario'])}}">Listar Usuários</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-line-chart"></i> Relatórios <span class="fa fa-chevron-down"></span></a>

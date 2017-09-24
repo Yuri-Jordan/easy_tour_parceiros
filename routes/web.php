@@ -13,13 +13,21 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::group( ['prefix' => 'admin'], function(){
 
+    Route::group(['prefix' => 'cadastrar'], function(){
+
+      Route::get('/{acao}',  [
+        'uses' => 'NavegacaoController@getPaginasCadastrar',
+        'as' => 'getPaginaCadastrar'
+      ]);
+    });
+
     Route::get('/{acao}',  [
-      'uses' => 'NavegacaoController@getPaginas',
-      'as' => 'getPagina'
+      'uses' => 'NavegacaoController@getPaginasListar',
+      'as' => 'getPaginaListar'
     ]);
 
 });
