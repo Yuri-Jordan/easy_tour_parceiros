@@ -265,6 +265,8 @@
     <script src="{{asset('asset/vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
     <script src="{{asset('asset/vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
     <script src="{{asset('asset/vendors/flot.curvedlines/curvedLines.js')}}"></script>
+    <!-- validator -->
+    <script src="{{asset('asset/vendors/validator/validator.js')}}"></script>
     <!-- DateJS -->
     <script src="{{asset('asset/vendors/DateJS/build/date.js')}}"></script>
     <!-- JQVMap -->
