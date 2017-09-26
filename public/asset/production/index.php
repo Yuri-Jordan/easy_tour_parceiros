@@ -51,8 +51,10 @@
                         session_start();
                         if(isset($_SESSION['adm'])){
                             echo ''.$_SESSION['adm'].'';
-                        }else if(isset($_SESSION['nor'])){
-                            echo ''.$_SESSION['nor'].'';
+                        }else if(isset($_SESSION['parceiro'])){
+                            echo ''.$_SESSION['parceiro'].'';
+                        }}else if(isset($_SESSION['turista'])){
+                            echo ''.$_SESSION['turista'].'';
                         }else{
                             echo '<script type="text/javascript"> window.location = "login.php"</script>';
                         }
@@ -148,8 +150,10 @@
                     <img src="images/img.jpg" alt=""><?php
                         if(isset($_SESSION['adm'])){
                             echo ''.$_SESSION['adm'].'';
-                        }else if(isset($_SESSION['nor'])){
-                            echo ''.$_SESSION['nor'].'';
+                        }else if(isset($_SESSION['parceiro'])){
+                            echo ''.$_SESSION['parceiro'].'';
+                        }}else if(isset($_SESSION['turista'])){
+                            echo ''.$_SESSION['turista'].'';
                         }else{
                             echo '<script type="text/javascript"> window.location = "login.php"</script>';
                         }
