@@ -20,23 +20,28 @@
         
         //Se $num for igual a 1, é porque existe o usuário na tabela, se não será 0.
         if($num == 1){
-            //O laço percorrerá os campos da tabela para encontrar o usuário.
+            //O laço percorrerá os campos da tabela para encontrar o tipo de usuário.
             while($percorrer = pg_fetch_array($get)){
-                //A pesquisa será pelo campo adm do banco de dados.
+                //pesquisa o campo adm, turista e parceiro no banco de dados.
                 $adm = $percorrer['adm'];
+                $parceiro = $percorrer['parceiro'];
+                $turista = $percorrer['turista'];
                 $nome = $percorrer['nome'];
                 
                 //Iniciar uma sessão, afirmando que tem um usuário logado.
                 session_start();
                 
-                //Validará se o usuário é parceiro ou não.
+                //Validará o tipo do usuário.
                 if($adm == 1){
                     $_SESSION['adm'] = $nome;
+                    echo '<script type="text/javascript"> window.location = "index-ADMIN.php"</script>';
+                }else if($parceiro == 1){
+                    $_SESSION['parceiro'] = $nome;
+                    echo '<script type="text/javascript"> window.location = "index-PARCEIRO.php"</script>';
                 }else{
-                    $_SESSION['nor'] = $nome;
-                }
-                
-                echo '<script type="text/javascript"> window.location = "index.php"</script>';
+                    $_SESSION['turista'] = $nome;
+                    echo '<script type="text/javascript"> window.location = "index-TURISTA.php"</script>';
+                }                                
             }
         }else{
             echo 'O email ou a senha estão errados.';
