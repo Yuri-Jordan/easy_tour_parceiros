@@ -1,5 +1,6 @@
 @extends('layout.masterLayout')
 @section('conteudo')
+
   <!-- page content -->
   <div class="right_col" role="main">
     <div class="">
@@ -62,14 +63,13 @@
                     <td width="77%">
                     <a>Pizzaria</a></td>
                     <td>
-                      <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
+                      <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil" ></i> Editar </a>
                       <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
                     </td>
                   </tr>
                 </tbody>
               </table>
               <!-- end project list -->
-
             </div>
           </div>
         </div>
@@ -77,4 +77,22 @@
     </div>
   </div>
   <!-- /page content -->
+  @section('pos-scripts')
+    <script>
+         $(document).ready(function () {
+
+           $.ajax({
+                    url: 'https://easy-tour-parceiros-api.herokuapp.com/api/categoriaParceiros',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data, textStatus, xhr) {
+                       console.log(data);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log('Error in Operation');
+                    }
+               });
+         });
+    </script>
+  @endsection
 @endsection
