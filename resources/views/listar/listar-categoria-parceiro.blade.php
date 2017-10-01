@@ -48,25 +48,8 @@
                     <th style="width: 20%">Ações</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>#</td>
-                    <td width="77%">
-                      <a>Restaurante</a></td>
-                    <td>
-                      <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                      <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>#</td>
-                    <td width="77%">
-                    <a>Pizzaria</a></td>
-                    <td>
-                      <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil" ></i> Editar </a>
-                      <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                    </td>
-                  </tr>
+                <tbody id="categoria_parceiros">
+
                 </tbody>
               </table>
               <!-- end project list -->
@@ -79,20 +62,40 @@
   <!-- /page content -->
   @section('pos-scripts')
     <script>
-         $(document).ready(function () {
 
-           $.ajax({
-                    url: 'https://easy-tour-parceiros-api.herokuapp.com/api/categoriaParceiros',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (data, textStatus, xhr) {
-                       console.log(data);
-                    },
-                    error: function (xhr, textStatus, errorThrown) {
-                        console.log('Error in Operation');
-                    }
-               });
-         });
+        $(document).ready(function () {
+
+          $.ajax({
+                   url: 'http://localhost/easyTourAPI/public/api/categoriaParceiros',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: function (data, textStatus, xhr) {
+                      var categoria = '';
+                      $.each(data, function (key, value) {
+                        categoria += '<tr>';
+                          categoria += '<td>#</td>';
+                          categoria += "<td width='77%'><a>"+value.nome+"</a></td>";
+                          categoria += "<td>";
+                            categoria += "<a href='#' class='btn btn-info btn-xs' onclick='editar()'><i class='fa fa-pencil'></i> Editar </a>";
+                            categoria += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir()'><i class='fa fa-trash-o'></i> Deletar </a>";
+                          categoria += "</td>";
+                        categoria += '</tr>';
+                      });
+                      $('#categoria_parceiros').append(categoria);
+                   },
+                   error: function (xhr, textStatus, errorThrown) {
+                       console.log('Error in Operation');
+                   }
+              });
+        });
+
+        function editar() {
+          console.log('EDITAR');
+        }
+        function excluir() {
+          console.log('EXCLUIR');
+        }
+
     </script>
   @endsection
 @endsection
