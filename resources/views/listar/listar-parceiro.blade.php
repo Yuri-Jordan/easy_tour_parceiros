@@ -48,38 +48,8 @@
                     <th style="width: 20%">Ações</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>#</td>
-                    <td>
-                      <a>Natal Shopping</a></td>
-                    <td>
-                      <ul class="list-inline">
-                        <li>O melhor shopping de Natal. </li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                      </ul>
-                    </td>
-                    <td>
-                      <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                      <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>#</td>
-                    <td>
-                    <a>Midway Mall</a></td>
-                    <td>
-                      <ul class="list-inline">
-                        <li>Muito mais shopping.</li>
-                        <li></li>
-                    </ul></td>
-                    <td>
-                      <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                      <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                    </td>
-                  </tr>
+                <tbody id='parceiros'>
+                  
                 </tbody>
               </table>
               <!-- end project list -->
@@ -97,22 +67,24 @@
         $(document).ready(function () {
 
           $.ajax({
-                   url: 'http://localhost/easyTourAPI/public/api/parceiros',
+                   url: 'https://easy-tour-parceiros-api.herokuapp.com/api/parceiros',
                    type: 'GET',
                    dataType: 'json',
                    success: function (data, textStatus, xhr) {
-                      var categoria = '';
+                     console.log(data);
+                      var parceiros = '';
                       $.each(data, function (key, value) {
-                        categoria += '<tr>';
-                          categoria += '<td>#</td>';
-                          categoria += "<td width='77%'><a>"+value.nome+"</a></td>";
-                          categoria += "<td>";
-                            categoria += "<a href='#' class='btn btn-info btn-xs' onclick='editar()'><i class='fa fa-pencil'></i> Editar </a>";
-                            categoria += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir()'><i class='fa fa-trash-o'></i> Deletar </a>";
-                          categoria += "</td>";
-                        categoria += '</tr>';
+                        parceiros += '<tr>';
+                          parceiros += '<td>#</td>';
+                          parceiros += "<td width='77%'><a>"+value.nome_fantasia+"</a></td>";
+                          parceiros += "<td width='77%'><a>"+value.razao_social+"</a></td>";
+                          parceiros += "<td>";
+                            parceiros += "<a href='#' class='btn btn-info btn-xs' onclick='editar()'><i class='fa fa-pencil'></i> Editar </a>";
+                            parceiros += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir()'><i class='fa fa-trash-o'></i> Deletar </a>";
+                          parceiros += "</td>";
+                        parceiros += '</tr>';
                       });
-                      $('#categoria_parceiros').append(categoria);
+                      $('#parceiros').append(parceiros);
                    },
                    error: function (xhr, textStatus, errorThrown) {
                        console.log('Error in Operation');

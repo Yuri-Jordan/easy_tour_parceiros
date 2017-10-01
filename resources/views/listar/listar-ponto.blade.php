@@ -48,38 +48,8 @@
                     <th style="width: 20%">Ações</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>#</td>
-                    <td>
-                      <a>Fortaleza dos Reis Magos</a></td>
-                    <td>
-                      <ul class="list-inline">
-                        <li>O Forte dos Reis Magos é uma edificação militar histórica localizada na cidade de Natal. </li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                      </ul>
-                    </td>
-                    <td>
-                      <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                      <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>#</td>
-                    <td>
-                    <a>Fundação Capitania das Artes</a></td>
-                    <td>
-                      <ul class="list-inline">
-                        <li>Seu prédio foi sede do Governo do Estado, da Escola de Aprendizes de Marinheiro e da Capitania dos Portos.</li>
-                        <li></li>
-                    </ul></td>
-                    <td>
-                      <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                      <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                    </td>
-                  </tr>
+                <tbody id="pontos">
+                  
                 </tbody>
               </table>
               <!-- end project list -->
@@ -91,4 +61,44 @@
     </div>
   </div>
   <!-- /page content -->
+  @section('pos-scripts')
+    <script>
+
+        $(document).ready(function () {
+
+          $.ajax({
+                   url: 'https://easy-tour-parceiros-api.herokuapp.com/api/pontos',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: function (data, textStatus, xhr) {
+                     console.log(data);
+                      var pontos = '';
+                      $.each(data, function (key, value) {
+                        pontos += '<tr>';
+                          pontos += '<td>#</td>';
+                          pontos += "<td width='77%'><a>"+value.nome+"</a></td>";
+                          pontos += "<td width='77%'><a>"+value.descricao+"</a></td>";
+                          pontos += "<td>";
+                            pontos += "<a href='#' class='btn btn-info btn-xs' onclick='editar()'><i class='fa fa-pencil'></i> Editar </a>";
+                            pontos += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir()'><i class='fa fa-trash-o'></i> Deletar </a>";
+                          pontos += "</td>";
+                        pontos += '</tr>';
+                      });
+                      $('#pontos').append(pontos);
+                   },
+                   error: function (xhr, textStatus, errorThrown) {
+                       console.log('Error in Operation');
+                   }
+              });
+        });
+
+        function editar() {
+          console.log('EDITAR');
+        }
+        function excluir() {
+          console.log('EXCLUIR');
+        }
+
+    </script>
+  @endsection
 @endsection

@@ -47,25 +47,8 @@
                     <th style="width: 20%">Ações</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>#</td>
-                    <td width="77%">
-                      <a>Aventura</a></td>
-                    <td>
-                      <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                      <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>#</td>
-                    <td width="77%">
-                    <a>Cultural</a></td>
-                    <td>
-                      <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                      <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
-                    </td>
-                  </tr>
+                <tbody id='categoria_pontos'>
+
                 </tbody>
               </table>
               <!-- end project list -->
@@ -77,4 +60,43 @@
     </div>
   </div>
   <!-- /page content -->
+  @section('pos-scripts')
+    <script>
+
+        $(document).ready(function () {
+
+          $.ajax({
+                   url: 'https://easy-tour-parceiros-api.herokuapp.com/api/categoriaPontos',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: function (data, textStatus, xhr) {
+                     console.log(data);
+                      var cp = '';
+                      $.each(data, function (key, value) {
+                        cp += '<tr>';
+                          cp += '<td>#</td>';
+                          cp += "<td width='77%'><a>"+value.nome+"</a></td>";
+                          cp += "<td>";
+                            cp += "<a href='#' class='btn btn-info btn-xs' onclick='editar()'><i class='fa fa-pencil'></i> Editar </a>";
+                            cp += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir()'><i class='fa fa-trash-o'></i> Deletar </a>";
+                          cp += "</td>";
+                        cp += '</tr>';
+                      });
+                      $('#categoria_pontos').append(cp);
+                   },
+                   error: function (xhr, textStatus, errorThrown) {
+                       console.log('Error in Operation');
+                   }
+              });
+        });
+
+        function editar() {
+          console.log('EDITAR');
+        }
+        function excluir() {
+          console.log('EXCLUIR');
+        }
+
+    </script>
+  @endsection
 @endsection
