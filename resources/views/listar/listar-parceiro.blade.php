@@ -91,4 +91,42 @@
     </div>
   </div>
   <!-- /page content -->
+  @section('pos-scripts')
+    <script>
+
+        $(document).ready(function () {
+
+          $.ajax({
+                   url: 'http://localhost/easyTourAPI/public/api/parceiros',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: function (data, textStatus, xhr) {
+                      var categoria = '';
+                      $.each(data, function (key, value) {
+                        categoria += '<tr>';
+                          categoria += '<td>#</td>';
+                          categoria += "<td width='77%'><a>"+value.nome+"</a></td>";
+                          categoria += "<td>";
+                            categoria += "<a href='#' class='btn btn-info btn-xs' onclick='editar()'><i class='fa fa-pencil'></i> Editar </a>";
+                            categoria += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir()'><i class='fa fa-trash-o'></i> Deletar </a>";
+                          categoria += "</td>";
+                        categoria += '</tr>';
+                      });
+                      $('#categoria_parceiros').append(categoria);
+                   },
+                   error: function (xhr, textStatus, errorThrown) {
+                       console.log('Error in Operation');
+                   }
+              });
+        });
+
+        function editar() {
+          console.log('EDITAR');
+        }
+        function excluir() {
+          console.log('EXCLUIR');
+        }
+
+    </script>
+  @endsection
 @endsection
