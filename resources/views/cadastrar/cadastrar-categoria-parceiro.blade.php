@@ -33,12 +33,19 @@
             </div>
             <div class="x_content">
 
-              <form class="form-horizontal form-label-left" novalidate id="form">
+              <form class="form-horizontal form-label-left" novalidate id="form" action="https://easy-tour-parceiros-api.herokuapp.com/api/categoriaParceiros" method="post">
 
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="nome" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nome" required="required" type="text">
+                    <input id="nome" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="nome" required="required" type="text">
+                  </div>
+                </div>
+
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tipo">Tipo <span class="required">*</span> </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="tipo" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="tipo" required="required" type="text">
                   </div>
                 </div>
 
