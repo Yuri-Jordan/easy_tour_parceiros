@@ -94,28 +94,30 @@
 
         function editar(id) {
           $.ajax({
-            url: "https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/"+id,
-            method: "PUT", // use "GET" if server does not handle DELETE
-            data: { "parceiros_id": $(this).id },
-            dataType: "json"
-          }).done(function( msg ) {
-            console.log(data);
-          }).fail(function( jqXHR, textStatus ) {
-            alert( "Request failed: " + textStatus );
+            url: 'https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/'+id,
+            type: 'PUT',
+            dataType: 'json',
+            success: function (data, textStatus, xhr) {
+               console.log(data);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
           });
         }
         function excluir(id) {
 
-              $.ajax({
-                url: "https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/"+id,
-                method: "DELETE", // use "GET" if server does not handle DELETE
-                data: { "parceiros_id": $(this).id },
-                dataType: "json"
-              }).done(function( msg ) {
-                console.log(data);
-              }).fail(function( jqXHR, textStatus ) {
-                alert( "Request failed: " + textStatus );
-              });
+          $.ajax({
+            url: 'https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/'+id,
+            type: 'DELETE',
+            dataType: 'json',
+            success: function (data, textStatus, xhr) {
+               console.log(data);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+          });
         }
 
     </script>
