@@ -71,6 +71,7 @@
                    dataType: 'json',
                    success: function (data, textStatus, xhr) {
                       var categoria = '';
+                      console.log(data);
                       $.each(data, function (key, value) {
                         categoria += '<tr>';
                           categoria += '<td>#</td>';

@@ -32,30 +32,37 @@
             </div>
             <div class="x_content">
 
-              <form class="form-horizontal form-label-left" novalidate id="form">
+              <form class="form-horizontal form-label-left" novalidate id="form" action="https://easy-tour-parceiros-api.herokuapp.com/api/parceiros" method="post">
 
                 <div class="item form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">CNPJ <span class="required">*</span> </label>
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cnpj">CNPJ <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="nome" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nome" required="required" type="text">
+                    <input id="nome" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="cnpj" required="required" type="text">
                   </div>
                 </div>
 
                 <div class="item form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Razão social <span class="required">*</span> </label>
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
+                    <input id="nome" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="cpf" required="required" type="text">
                   </div>
                 </div>
 
                 <div class="item form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Nome de fantasia <span class="required">*</span> </label>
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="razao_social">Razão social <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="razao_social" required="required" type="text">
                   </div>
                 </div>
 
                 <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome_fantasia">Nome de fantasia <span class="required">*</span> </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="nome_fantasia" required="required" type="text">
+                  </div>
+                </div>
+
+                {{-- <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Logradouro <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
@@ -88,16 +95,16 @@
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
                   </div>
-                </div>
+                </div> --}}
 
                 <div class="item form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Município <span class="required">*</span> </label>
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endereco">Endereço <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="endereco" required="required" type="text">
                   </div>
                 </div>
 
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12">UF <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <select class="form-control">
@@ -131,9 +138,9 @@
         <option value="to">Tocantins</option>
                     </select>
                   </div>
-                </div>
+                </div> --}}
 
-                <div class="item form-group">
+                {{-- <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">E-mail <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
@@ -159,17 +166,14 @@
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <textarea id="textarea" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="textarea" required="required" type="text"></textarea>
                   </div>
-                </div>
+                </div> --}}
 
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Categoria <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <select class="form-control">
-                      <option>  </option>
-                      <option>Pizzaria</option>
-                      <option>Restaurante</option>
-                      <option>Sandwicheria</option>
-                      <option>Sorveteria</option>
+                    <select class="form-control" id="parceiros" name="categoria_parceiros_id">
+                      <option></option>
+
                     </select>
                   </div>
                 </div>
@@ -194,12 +198,34 @@
   @section('pos-scripts')
     <script>
 
+        $(document).ready(function () {
+          $.ajax({
+                   url: 'https://easy-tour-parceiros-api.herokuapp.com/api/categoriaParceiros',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: function (data, textStatus, xhr) {
+                      var categoria = '';
+                      console.log(data);
+                      $.each(data, function (key, value) {
+                        categoria += "<option value='"+value.id+"'>"+value.nome+"</option>";
+                      });
+                      $('#parceiros').append(categoria);
+                   },
+                   error: function (xhr, textStatus, errorThrown) {
+                       console.log('Error in Operation');
+                   }
+              });
+        });
 
         function apagarConteudo() {
           $("#form").trigger('reset');
         }
         function excluir() {
           console.log('EXCLUIR');
+        }
+
+        function print(id) {
+          console.log(id);
         }
 
     </script>
