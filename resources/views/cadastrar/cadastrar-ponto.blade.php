@@ -112,7 +112,7 @@
 
                 <div class="form-group">
                   <div class="col-md-6 col-md-offset-3">
-                    <button type="submit" class="btn btn-primary" onclick="apagarConteudo()>Cancelar</button>
+                    <button type="submit" class="btn btn-primary" onclick="apagarConteudo()">Cancelar</button>
                     <button id="send" type="submit" class="btn btn-success">Enviar</button>
                   </div>
                 </div>
