@@ -95,7 +95,7 @@
         function excluir(id) {
           $.ajax({
             url: 'https://easy-tour-parceiros-api.herokuapp.com/api/categoriaParceiros/'+id,
-            type: 'delete',
+            type: 'DELETE',
             dataType: 'json',
             success: function (data, textStatus, xhr) {
                console.log(data);
