@@ -49,7 +49,7 @@
                   </tr>
                 </thead>
                 <tbody id='parceiros'>
-                  
+
                 </tbody>
               </table>
               <!-- end project list -->
@@ -79,8 +79,8 @@
                           parceiros += "<td width='77%'><a>"+value.nome_fantasia+"</a></td>";
                           parceiros += "<td width='77%'><a>"+value.razao_social+"</a></td>";
                           parceiros += "<td>";
-                            parceiros += "<a href='#' class='btn btn-info btn-xs' onclick='editar()'><i class='fa fa-pencil'></i> Editar </a>";
-                            parceiros += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir()'><i class='fa fa-trash-o'></i> Deletar </a>";
+                            parceiros += "<a href='#' class='btn btn-info btn-xs' onclick='editar("+value.id+")'><i class='fa fa-pencil'></i> Editar </a>";
+                            parceiros += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir("+value.id+")'><i class='fa fa-trash-o'></i> Deletar </a>";
                           parceiros += "</td>";
                         parceiros += '</tr>';
                       });
@@ -92,11 +92,30 @@
               });
         });
 
-        function editar() {
-          console.log('EDITAR');
+        function editar(id) {
+          $.ajax({
+            url: "https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/"+id,
+            method: "PUT", // use "GET" if server does not handle DELETE
+            data: { "parceiros_id": $(this).id },
+            dataType: "json"
+          }).done(function( msg ) {
+            console.log(data);
+          }).fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+          });
         }
-        function excluir() {
-          console.log('EXCLUIR');
+        function excluir(id) {
+
+              $.ajax({
+                url: "https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/"+id,
+                method: "DELETE", // use "GET" if server does not handle DELETE
+                data: { "parceiros_id": $(this).id },
+                dataType: "json"
+              }).done(function( msg ) {
+                console.log(data);
+              }).fail(function( jqXHR, textStatus ) {
+                alert( "Request failed: " + textStatus );
+              });
         }
 
     </script>
