@@ -77,7 +77,7 @@
                           categoria += "<td width='77%'><a>"+value.nome+"</a></td>";
                           categoria += "<td>";
                             categoria += "<a href='#' class='btn btn-info btn-xs' onclick='editar()'><i class='fa fa-pencil'></i> Editar </a>";
-                            categoria += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir()'><i class='fa fa-trash-o'></i> Deletar </a>";
+                            categoria += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir("+value.id+")'><i class='fa fa-trash-o'></i> Deletar </a>";
                           categoria += "</td>";
                         categoria += '</tr>';
                       });
@@ -92,10 +92,21 @@
         function editar() {
           console.log('EDITAR');
         }
-        function excluir() {
-          console.log('EXCLUIR');
+        function excluir(id) {
+          $.ajax({
+            url: 'https://easy-tour-parceiros-api.herokuapp.com/api/categoriaParceiros/'+id,
+            type: 'delete',
+            dataType: 'json',
+            success: function (data, textStatus, xhr) {
+               console.log(data);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+          });
         }
 
     </script>
   @endsection
 @endsection
+{{--  --}}
