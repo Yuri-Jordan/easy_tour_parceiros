@@ -32,7 +32,7 @@
             </div>
             <div class="x_content">
 
-              <form class="form-horizontal form-label-left" novalidate>
+              <form class="form-horizontal form-label-left" novalidate id="form">
 
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome <span class="required">*</span> </label>
@@ -112,7 +112,7 @@
 
                 <div class="form-group">
                   <div class="col-md-6 col-md-offset-3">
-                    <button type="submit" class="btn btn-primary">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" onclick="apagarConteudo()>Cancelar</button>
                     <button id="send" type="submit" class="btn btn-success">Enviar</button>
                   </div>
                 </div>
@@ -125,4 +125,17 @@
     </div>
   </div>
   <!-- /page content -->
+  @section('pos-scripts')
+    <script>
+
+
+        function apagarConteudo() {
+          $("#form").trigger('reset');
+        }
+        function excluir() {
+          console.log('EXCLUIR');
+        }
+
+    </script>
+  @endsection
 @endsection
