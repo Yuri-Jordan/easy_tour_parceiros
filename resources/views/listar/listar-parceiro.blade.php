@@ -87,18 +87,19 @@
 
 
 
-                        parceiros += '<form id="form'+value.id+'" action="https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/"'+value.id+' method="put">';
-                          parceiros += '<tr style="display:none" id = "'+value.id+'">';
 
-                          parceiros += '<td>'+value.id+'</td>';
-                          parceiros += "<td width='77%'><input class='form-control col-md-7 col-xs-12' data-validate-length-range='2' data-validate-words='1' name='nome_fantasia' value='"+value.nome_fantasia+"' type='text'></td>";
-                          parceiros += "<td width='77%'><input class='form-control col-md-7 col-xs-12' data-validate-length-range='2' data-validate-words='1' name='descricao' value='"+value.descricao+"' type='text'></td>";
-                          parceiros += "<td>";
-                            parceiros += "<input type='submit' value='Enviar' onclick='enviar("+value.id+")'></input>";
-                            parceiros += "<a href='#' class='btn btn btn-xs' onclick='cancelarEdicao("+value.id+")'><i class='fa fa-trash-o'></i> Cancelar </a>";
-                          parceiros += "</td>";
-                          parceiros += '</tr>';
-                        parceiros += '</form>';
+                        parceiros += '<tr style="display:none" id = "'+value.id+'">';
+                          parceiros += '<form class="form-horizontal form-label-left" novalidate id="form'+value.id+'" action="https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/'+value.id+'" method="put">';
+                            parceiros += '<td>'+value.id+'</td>';
+                            parceiros += "<td width='77%'><input class='form-control col-md-7 col-xs-12' data-validate-length-range='2' data-validate-words='1' name='nome_fantasia' value='"+value.nome_fantasia+"' type='text'></td>";
+                            parceiros += "<td  width='77%'><input class='form-control col-md-7 col-xs-12' data-validate-length-range='2' data-validate-words='1' name='descricao' value='"+value.descricao+"' type='text'></td>";
+                            parceiros += "<td>";
+                              parceiros += "<button type='submit' value='Enviar' onclick='enviar("+value.id+")'>Enviar</button>";
+                              parceiros += "<a href='#' class='btn btn btn-xs' onclick='cancelarEdicao("+value.id+")'><i class='fa fa-trash-o'></i> Cancelar </a>";
+                            parceiros += "</td>";
+                          parceiros += '</form>';
+                        parceiros += '</tr>';
+
                       });
                       $('#parceiros').append(parceiros);
                    },
@@ -112,17 +113,6 @@
 
           $("#"+id+"").slideToggle();
 
-          $.ajax({
-            url: 'https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/'+id,
-            type: 'GET',
-            dataType: 'json',
-            success: function (data, textStatus, xhr) {
-               console.log(data);
-            },
-            error: function (xhr, textStatus, errorThrown) {
-                console.log('Error in Operation');
-            }
-          });
         }
         function excluir(id) {
 
@@ -144,7 +134,7 @@
         }
 
         function enviar(id){
-          $('#form'+id).submit();
+          $("#form"+id+"").submit();
         }
 
 
