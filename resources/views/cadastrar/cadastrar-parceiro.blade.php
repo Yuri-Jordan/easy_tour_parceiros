@@ -37,70 +37,89 @@
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cnpj">CNPJ <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="nome" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="cnpj" required="required" type="text">
-                  </div>
-                </div>
-
-                <div class="item form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF <span class="required">*</span> </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="nome" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="cpf" required="required" type="text">
-                  </div>
-                </div>
-
-                <div class="item form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="razao_social">Razão social <span class="required">*</span> </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="razao_social" required="required" type="text">
+                    <input id="nome" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="cnpj"  type="text">
                   </div>
                 </div>
 
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome_fantasia">Nome de fantasia <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="nome_fantasia" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="nome_fantasia" required="required" type="text">
                   </div>
                 </div>
 
-                {{-- <div class="item form-group">
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="razao_social">Razão social <span class="required">*</span> </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="razao_social"  type="text">
+                  </div>
+                </div>
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="razao_social">Latitude <span class="required">*</span> </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="latitude" required="required" type="text">
+                  </div>
+                </div>
+
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Longitude <span class="required">*</span> </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="longitude" required="required" type="text">
+                  </div>
+                </div>
+
+                <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Logradouro <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="logradouro"  type="text">
                   </div>
                 </div>
 
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Número <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="numero"  type="text">
                   </div>
                 </div>
 
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Complemento <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="complemento"  type="text">
                   </div>
                 </div>
 
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">CEP <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="cep"  type="text">
                   </div>
                 </div>
 
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Bairro <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="bairro"  type="text">
                   </div>
-                </div> --}}
+                </div>
 
                 <div class="item form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endereco">Endereço <span class="required">*</span> </label>
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endereco">Município <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="2" data-validate-words="1" name="endereco" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="municipio"  type="text">
+                  </div>
+                </div>
+
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endereco">UF <span class="required">*</span> </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="uf"  type="text">
+                  </div>
+                </div>
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endereco">País <span class="required">*</span> </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="pais"  type="text">
                   </div>
                 </div>
 
@@ -140,33 +159,46 @@
                   </div>
                 </div> --}}
 
-                {{-- <div class="item form-group">
+                <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">E-mail <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="email"  type="text">
                   </div>
                 </div>
 
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Telefone <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="telefone"  type="text">
                   </div>
                 </div>
 
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Responsável <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="latitude" required="required" type="text">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="responsavel"  type="text">
                   </div>
                 </div>
 
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Descrição <span class="required">*</span> </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <textarea id="textarea" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="textarea" required="required" type="text"></textarea>
+                    <textarea id="textarea" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="descricao"  type="text"></textarea>
                   </div>
-                </div> --}}
+                </div>
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="razao_social">Média avaliação <span class="required">*</span> </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="0" data-validate-words="0" name="media_avaliacao"  type="text">
+                  </div>
+                </div>
+
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="latitude">Quantidade de avaliações <span class="required">*</span> </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="latitude" class="form-control col-md-7 col-xs-12" data-validate-length-range="" data-validate-words="" name="qte_avaliacoes"  type="text">
+                  </div>
+                </div>
 
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Categoria <span class="required">*</span> </label>
