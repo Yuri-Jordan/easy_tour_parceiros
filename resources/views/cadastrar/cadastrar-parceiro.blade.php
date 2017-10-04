@@ -252,13 +252,7 @@
         function apagarConteudo() {
           $("#form").trigger('reset');
         }
-        function excluir() {
-          console.log('EXCLUIR');
-        }
-
-        function print(id) {
-          console.log(id);
-        }
+      
 
     </script>
   @endsection

@@ -73,14 +73,27 @@
                       var categoria = '';
                       console.log(data);
                       $.each(data, function (key, value) {
+
                         categoria += '<tr>';
                           categoria += '<td>#</td>';
                           categoria += "<td width='77%'><a>"+value.nome+"</a></td>";
                           categoria += "<td>";
-                            categoria += "<a href='#' class='btn btn-info btn-xs' onclick='editar()'><i class='fa fa-pencil'></i> Editar </a>";
+                            categoria += "<a href='#' class='btn btn-info btn-xs' onclick='editar("+value.id+")'><i class='fa fa-pencil'></i> Editar </a>";
                             categoria += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir("+value.id+")'><i class='fa fa-trash-o'></i> Deletar </a>";
                           categoria += "</td>";
                         categoria += '</tr>';
+
+                        categoria += '<tr style="display:none" id = "'+value.id+'">';
+
+                            categoria += '<td>'+value.id+'</td>';
+                            categoria += "<td width='77%'><input id='nome"+value.id+"' class='form-control col-md-7 col-xs-12' data-validate-length-range='2' data-validate-words='1' name='nome_fantasia' value='"+value.nome+"' type='text'></td>";
+                              categoria += "<td>";
+                                categoria += "<button value='Enviar' onclick='enviar("+value.id+")'>Enviar</button>";
+                                categoria += "<a href='#' class='btn btn btn-xs' onclick='cancelarEdicao("+value.id+")'><i class='fa fa-trash-o'></i> Cancelar </a>";
+                              categoria += "</td>";
+
+                        categoria += '</tr>';
+
                       });
                       $('#categoria_parceiros').append(categoria);
                    },
@@ -90,8 +103,32 @@
               });
         });
 
-        function editar() {
-          console.log('EDITAR');
+        function enviar(id){
+
+          $.ajax({
+            url: 'https://easy-tour-parceiros-api.herokuapp.com/api/categoriaParceiros/'+id,
+            type: 'PUT',
+            data: {
+                    nome:document.getElementById('nome'+id).value,
+                  },
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            success: function (data, textStatus, xhr) {
+               console.log(data);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+          });
+        }
+
+        function cancelarEdicao(id){
+          $("#"+id+"").slideToggle();
+        }
+
+        function editar(id) {
+
+          $("#"+id+"").slideToggle();
+
         }
         function excluir(id) {
           $.ajax({
@@ -110,4 +147,3 @@
     </script>
   @endsection
 @endsection
-{{--  --}}

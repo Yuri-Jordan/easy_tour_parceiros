@@ -66,9 +66,7 @@
         function apagarConteudo() {
           $("#form").trigger('reset');
         }
-        function excluir() {
-          console.log('EXCLUIR');
-        }
+      
 
     </script>
   @endsection
