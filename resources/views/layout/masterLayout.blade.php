@@ -27,6 +27,9 @@
 
     <!-- Custom Theme Style -->
     <link href="{{asset('asset/build/css/custom.min.css')}}" rel="stylesheet">
+
+    @yield('styles')
+
   </head>
 
   <body class="nav-md">

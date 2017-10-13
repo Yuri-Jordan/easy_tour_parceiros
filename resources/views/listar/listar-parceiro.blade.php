@@ -1,23 +1,44 @@
 @extends('layout.masterLayout')
+@section('styles')
+  <link href="{{asset('asset/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('asset/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('asset/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('asset/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('asset/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
+@endsection
 @section('conteudo')
+
+
+
   <!-- page content -->
   <div class="right_col" role="main">
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3>Listar Parceiros</h3>
+          <h3>Users <small>Some examples to get you started</small></h3>
+        </div>
+
+        <div class="title_right">
+          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="clearfix"></div>
 
-<br />
-
       <div class="row">
-        <div class="col-md-12">
+
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>Informações do Parceiro</h2>
+              <h2>Fixed Header Example <small>Users</small></h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -36,125 +57,109 @@
               <div class="clearfix"></div>
             </div>
             <div class="x_content">
-
-
-              <!-- start project list -->
-              <table class="table table-striped projects">
+              <p class="text-muted font-13 m-b-30">
+                This example shows FixedHeader being styling by the Bootstrap CSS framework.
+              </p>
+              <table id="datatable-fixed-header" class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th style="width: 1%">#</th>
-                    <th style="width: 20%">Nome</th>
-                    <th>Descrição</th>
-                    <th style="width: 20%">Ações</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Office</th>
+                    <th>Age</th>
+                    <th>Start date</th>
+                    <th>Salary</th>
                   </tr>
                 </thead>
-                <tbody id='parceiros'>
-
-                </tbody>
               </table>
-              <!-- end project list -->
-
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
   <!-- /page content -->
+  @endsection
   @section('pos-scripts')
+    <script src="{{asset('asset/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/datatables.net-buttons/js/buttons.flash.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{asset('asset../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
+    <script src="{{asset('asset/vendors/datatables.net-scroller/js/dataTables.scroller.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/jszip/dist/jszip.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
+    <script src="{{asset('asset/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
+
     <script>
+      $('#datatable-fixed-header').DataTable( {
+          "processing": true,
+          "serverside": true,
+          "ajax": 'http://localhost/easyTourAPI/public/api/parceirosAdmin',
 
-        $(document).ready(function () {
+          "columns": [
+              { data: "nome_fantasia" },
+              { data: "responsavel" },
+              { data: "descricao" },
+              { data: "cnpj" },
+              { data: "created_at" },
+              { data: "updated_at" },
+          ],
+      } );
 
-          $.ajax({
-                   url: 'https://easy-tour-parceiros-api.herokuapp.com/api/parceiros',
-                   type: 'GET',
-                   dataType: 'json',
-                   success: function (data, textStatus, xhr) {
-                     console.log(data);
-                     window.parceiros = data;
-                      var parceiros = '';
-                      $.each(data, function (key, value) {
+      function enviar(id){
 
-                        parceiros += '<tr>';
-                          parceiros += '<td>#</td>';
-                          parceiros += "<td width='77%'>"+value.nome_fantasia+"</td>";
-                          parceiros += "<td width='77%'><a>"+value.descricao+"</a></td>";
-                          parceiros += "<td>";
-                            parceiros += "<a href='#' class='btn btn-info btn-xs' onclick='editar("+value.id+")'><i class='fa fa-pencil'></i> Editar </a>";
-                            parceiros += "<a href='#' class='btn btn-danger btn-xs' onclick='excluir("+value.id+")'><i class='fa fa-trash-o'></i> Deletar </a>";
-                          parceiros += "</td>";
-                        parceiros += '</tr>';
-
-
-
-
-                        parceiros += '<tr style="display:none" id = "'+value.id+'">';
-
-                            parceiros += '<td>'+value.id+'</td>';
-                            parceiros += "<td width='77%'><input id='nome_fantasia"+value.id+"' class='form-control col-md-7 col-xs-12' data-validate-length-range='2' data-validate-words='1' name='nome_fantasia' value='"+value.nome_fantasia+"' type='text'></td>";
-                            parceiros += "<td  width='77%'><input id='descricao"+value.id+"' class='form-control col-md-7 col-xs-12' data-validate-length-range='2' data-validate-words='1' name='descricao' value='"+value.descricao+"' type='text'></td>";
-                            parceiros += "<td>";
-                              parceiros += "<button value='Enviar' onclick='enviar("+value.id+")'>Enviar</button>";
-                              parceiros += "<a href='#' class='btn btn btn-xs' onclick='cancelarEdicao("+value.id+")'><i class='fa fa-trash-o'></i> Cancelar </a>";
-                            parceiros += "</td>";
-
-                        parceiros += '</tr>';
-
-                      });
-                      $('#parceiros').append(parceiros);
-                   },
-                   error: function (xhr, textStatus, errorThrown) {
-                       console.log('Error in Operation');
-                   }
-              });
+        $.ajax({
+          url: 'https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/'+id,
+          type: 'POST',
+          data: {
+                  nome_fantasia:document.getElementById('nome_fantasia'+id).value,
+                  descricao:document.getElementById('descricao'+id).value,
+                },
+          contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+          success: function (data, textStatus, xhr) {
+             console.log(data);
+          },
+          error: function (xhr, textStatus, errorThrown) {
+              console.log('Error in Operation');
+          }
         });
+      }
 
-        function enviar(id){
+      function editar(id) {
 
-          $.ajax({
-            url: 'https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/'+id,
-            type: 'POST',
-            data: {
-                    nome_fantasia:document.getElementById('nome_fantasia'+id).value,
-                    descricao:document.getElementById('descricao'+id).value,
-                  },
-            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-            success: function (data, textStatus, xhr) {
-               console.log(data);
-            },
-            error: function (xhr, textStatus, errorThrown) {
-                console.log('Error in Operation');
-            }
-          });
-        }
+        $("#"+id+"").slideToggle();
 
-        function editar(id) {
+      }
+      function excluir(id) {
 
-          $("#"+id+"").slideToggle();
+        $.ajax({
+          url: 'https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/'+id,
+          type: 'DELETE',
+          dataType: 'json',
+          success: function (data, textStatus, xhr) {
+             console.log(data);
+          },
+          error: function (xhr, textStatus, errorThrown) {
+              console.log('Error in Operation');
+          }
+        });
+      }
 
-        }
-        function excluir(id) {
-
-          $.ajax({
-            url: 'https://easy-tour-parceiros-api.herokuapp.com/api/parceiros/'+id,
-            type: 'DELETE',
-            dataType: 'json',
-            success: function (data, textStatus, xhr) {
-               console.log(data);
-            },
-            error: function (xhr, textStatus, errorThrown) {
-                console.log('Error in Operation');
-            }
-          });
-        }
-
-        function cancelarEdicao(id){
-          $("#"+id+"").slideToggle();
-        }
-
+      function cancelarEdicao(id){
+        $("#"+id+"").slideToggle();
+      }
 
 
     </script>
+
+
+
   @endsection
-@endsection

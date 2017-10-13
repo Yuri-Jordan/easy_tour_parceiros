@@ -66,7 +66,7 @@
         $(document).ready(function () {
 
           $.ajax({
-                   url: 'https://easy-tour-parceiros-api.herokuapp.com/api/categoriaParceiros',
+                   url: 'http://localhost/easyTourAPI/public/api/categoriaParceiros',
                    type: 'GET',
                    dataType: 'json',
                    success: function (data, textStatus, xhr) {
