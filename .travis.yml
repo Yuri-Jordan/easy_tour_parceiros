@@ -6,6 +6,7 @@ php:
 
 before_script:
   - composer install --no-interaction
+  - cat .env.example >> .env
   - php artisan key:generate
 script:
   - phpunit
